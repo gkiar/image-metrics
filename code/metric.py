@@ -14,7 +14,7 @@ def mse(imageA, imageB):
 
     # return the MSE, the lower the error, the more "similar"
     # the two images are
-   return err
+    return err
 
 
 def compare_images(imageA, imageB, title=None):
