@@ -35,7 +35,7 @@ def oneVoxelNoise(data, loc, scale=1.1):
     if len(loc) < len(data.shape):  # If fewer dimensions for location than data
         data[loc, :] = data[loc, :] * (scale)  # Apply noise
     else:
-        dat[loc] = data[loc] * (scale)  # Apply noise
+        data[loc] = data[loc] * (scale)  # Apply noise
     return data
 
 

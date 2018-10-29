@@ -1,10 +1,15 @@
 #!/usr/bin/env python
 
 import numpy as np
-from skimage.measure import structural_similarity as ssim
+from skimage.measure import compare_ssim as ssim
 from skimage.measure import compare_mse as mse
 from skimage.measure import compare_nrmse as nrmse
-from scipy.stats import entropy
+from scipy.stats import entropy, pearsonr
+
+
+def cc(A, B):
+    pearsoncoeff, pval = pearsonr(np.ravel(A), np.ravel(B))
+    return pearsoncoeff
 
 
 def nmi(A, B, bins=1000):
