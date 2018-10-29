@@ -1,0 +1,54 @@
+{
+    "command-line": "noise_simulations.py BIDS_DATASET MODALITY SKULL_STRIPPED VERBOSE",
+    "description": "tool description",
+    "inputs": [
+        {
+            "description": "",
+            "id": "bids_dataset",
+            "name": "bids_dataset",
+            "optional": false,
+            "type": "String",
+            "value-key": "BIDS_DATASET"
+        },
+        {
+            "description": "",
+            "id": "modality",
+            "name": "modality",
+            "optional": false,
+            "type": "String",
+            "value-choices": [
+                "anat",
+                "func",
+                "dwi"
+            ],
+            "value-key": "MODALITY"
+        },
+        {
+            "command-line-flag": "--skull_stripped",
+            "description": "",
+            "id": "skull_stripped",
+            "name": "skull_stripped",
+            "optional": true,
+            "type": "String",
+            "value-key": "SKULL_STRIPPED"
+        },
+        {
+            "command-line-flag": "--verbose",
+            "description": "",
+            "id": "verbose",
+            "name": "verbose",
+            "optional": true,
+            "type": "Flag",
+            "value-key": "VERBOSE"
+        }
+    ],
+    "name": "tool name",
+    "schema-version": "0.5",
+    "suggested-resources": {
+        "cpu-cores": 1,
+        "ram": 1,
+        "walltime-estimate": 60
+    },
+    "tags": {},
+    "tool-version": "v0.1.0"
+}
