@@ -80,7 +80,7 @@ def main():
     scale_1vox = 1.5
 
     # Setup noise parameters for Rician
-    b = 1.1
+    b = 1.91  # Value from https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2254141/
     scale_ric = 1.5
 
     # Setup noise parameters for Gaussian
