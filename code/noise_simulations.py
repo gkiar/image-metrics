@@ -36,14 +36,18 @@ def makeParser():
                         help="")
     parser.add_argument("--verbose", "-v", action="store_true",
                         help="")
+    parser.add_argument("--describe", action="store_true")
     return parser
 
 def main():
     parser = makeParser()
-    descriptor = bc.CreateDescriptor(parser, execname="noise_simulations.py")
-    descriptor.save("noise_simulations.json")
-
     results = parser.parse_args()
+
+    if results.describe:
+        descriptor = bc.CreateDescriptor(parser,
+                                         execname="noise_simulations.py")
+        descriptor.save("noise_simulations.json")
+
     verb = results.verbose
     cwd = os.getcwd()
 
@@ -124,7 +128,7 @@ def main():
                                              1 - metrics.ssim(image_raw,
                                                               image_1vox)]
         distance_df.loc[len(distance_df)] = [fil, "1-voxel", "NMI",
-                                             1 - metrics.nmi(image_raw,
+                                             2 - metrics.nmi(image_raw,
                                                              image_1vox)]
 
         #Computing Rician distances
@@ -140,7 +144,7 @@ def main():
                                              1 - metrics.ssim(image_raw,
                                                               image_ric)]
         distance_df.loc[len(distance_df)] = [fil, "Rician", "NMI",
-                                             1 - metrics.nmi(image_raw,
+                                             2 - metrics.nmi(image_raw,
                                                              image_ric)]
 
     if verb:
